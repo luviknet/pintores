@@ -1,0 +1,57 @@
+
+
+  <div class="container-fluid">
+    <div class="row ">
+     <h2>Pinturerias</h2>
+        {% for pintureria in pintureria %}
+    <div class="col-md-4">
+      
+      
+        <div class="card profile-card">
+          <div class="profile-header">&nbsp;</div>
+          <div class="profile-body">
+            <div class="image-area">
+              <img src="uploads/images/products/{{pintureria.image}}">
+            </div>
+            <div class="content-area">
+              <h3> {{pintureria.title}}</h3>
+              <h4>
+                  {{pintureria.description}}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+ 
+    </div>
+    
+    
+    
+     <div class="row ">
+     <h2>Tipos de Trabajo</h2>
+        {% for tipos in tipos %}
+    <div class="col-md-4">
+      
+      
+        <div class="card profile-card">
+          <div class="profile-header">&nbsp;</div>
+          <div class="profile-body">
+            <div class="image-area">
+              <img src="uploads/images/products/{{tipos.image}}">
+            </div>
+            <div class="content-area">
+              <h3> {{tipos.title}}</h3>
+              <h4>
+                  {{tipos.description}}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+ 
+    </div>
+  </div>
+
+

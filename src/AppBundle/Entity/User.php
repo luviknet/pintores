@@ -17,7 +17,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
@@ -25,10 +25,23 @@ class User implements UserInterface
     protected $email;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=255)
      */
     protected $name;
+  
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $zone;
 
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $tipo;
+          /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $description;
     /**
      * @ORM\Column(type="string", length=50)
      */
@@ -117,5 +130,35 @@ class User implements UserInterface
     public function getSalt()
     {
         return null;
+    }
+  
+        public function getZone()
+    {
+        return $this->zone;
+    }
+
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
+  
+          public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    }
+  
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }

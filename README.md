@@ -1,4 +1,4 @@
-Symfony 3.4 + FosUserbundle + EasyAdminBundle + vichuploaderbundle
+Symfony 3.4 +  EasyAdminBundle + vichuploaderbundle
 Para iniciar el server ejecutar en consola: php bin/console server:run
 
 ingresar al admin con /admin

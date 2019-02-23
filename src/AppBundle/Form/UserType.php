@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UserType extends AbstractType
 {
@@ -15,6 +16,22 @@ class UserType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('zone', ChoiceType::class, [
+                  'choices'  => [
+                      'Gba Oeste' => 'gbaoeste',
+                      'Gba Sur' => 'gbasur',
+                      'Gba Norte' => 'gbanorte',
+                      'Caba' => 'caba',
+                  ],
+              ])
+            ->add('tipo', ChoiceType::class, [
+                  'choices'  => [
+                      'Exterior' => 'exterior',
+                      'Interior' => 'interior',
+                      'Exterior e Interior' => 'exteriorinterior',
+                  ],
+              ])
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,

@@ -1,48 +1,96 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block body %}
+
+<body class="theme-red">
+
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+        <a href="javascript:void(0);" class="bars"></a>
+        <a class="navbar-brand" href="../../index.html">Pintores</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Call Search -->
 
 
+          <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons" data-toggle="modal" data-target="#myModal">perm_identity</i></a></li>
 
-{% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ path('security_login_check') }}">
-                        {% if error %}
-                            <div class="alert alert-danger">
-                                {{ error.messageKey|trans(error.messageData) }}
-                            </div>
-                        {% endif %}
+          <li><a href="{{ path('register') }}"><i class="material-icons">how_to_reg</i></a></li>
 
-                        <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="_email" value="{{ last_username }}">
-                            </div>
-                        </div>
+          <!-- #END# Notifications -->
+          <!-- Tasks -->
 
-                        <div class="form-group">
-                            <label for="password" class="col-md-4 control-label">Password</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="_password">
-                            </div>
-                        </div>
+        </ul>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Login
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </nav>
+
+  <section class="content card">
+    <div class="container-fluid">
+      <div class="block-header">
+        <h2>INDEX</h2>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="body">
+              <form method="POST" action="{{ path('security_login_check') }}">
+                {% if error %}
+                <div class="alert alert-danger">
+                  {{ error.messageKey|trans(error.messageData) }}
+                </div>
+                {% endif %}
+
+                <label for="email_address">Email Address</label>
+                <div class="form-group">
+                  <div class="form-line">
+                    <input type="text" id="email" name="_email" value="{{ last_username }}" class="form-control" placeholder="Enter your email address">
+                  </div>
+                </div>
+                <label for="password">Password</label>
+                <div class="form-group">
+                  <div class="form-line">
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="Enter your password">
+                  </div>
+                </div>
+
+                <input type="checkbox" id="remember_me" class="filled-in">
+                <label for="remember_me">Recordarme</label>
+                <br>
+                <button type="submit" class="btn btn-primary m-t-15 waves-effect">INGRESAR</button>
+              </form>
+            </div>
+          </div> 
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+  </section>
+
+</body>
 {% endblock %}

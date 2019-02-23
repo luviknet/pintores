@@ -1,1 +1,335 @@
-asdasd
+{% extends 'base.html.twig' %} {% block body %}
+
+<body class="theme-red">
+
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+ 
+  <!-- #END# Search Bar -->
+  <!-- Top Bar -->
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+        <a href="javascript:void(0);" class="bars"></a>
+        <a class="navbar-brand" href="../../index.html">Pintores</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Call Search -->
+          <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+          <!-- #END# Call Search -->
+          <!-- Notifications -->
+          <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">notifications</i>
+                            <span class="label-count">0</span>
+                        </a>
+            <ul class="dropdown-menu">
+              <li class="header">NOTIFICACIONES</li>
+              <li class="body">
+                <ul class="menu">
+             
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="javascript:void(0);">Ver todas</a>
+              </li>
+            </ul>
+          </li>
+          <!-- #END# Notifications -->
+          <!-- Tasks -->
+          
+           
+            </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-xs-12 col-sm-3">
+          <div class="card profile-card">
+            <div class="profile-header">&nbsp;</div>
+            <div class="profile-body">
+              {% for profile in profile %}
+
+
+              <div class="image-area">
+                <img src="assets/images/user-lg.jpg" alt="AdminBSB - Profile Image" />
+              </div>
+              <div class="content-area">
+                <h3>{{profile.name}}</h3>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card card-about-me">
+            <div class="header">
+              <h2>Sobre MI</h2>
+            </div>
+            <div class="body">
+              <ul>
+                <li>
+                  <div class="title">
+                    <i class="material-icons">library_books</i> {{profile.email}}
+                  </div>
+
+                </li>
+                <li>
+                  <div class="title">
+                    <i class="material-icons">location_on</i> Zona
+                  </div>
+                  <div class="content">
+{{profile.zone}}
+                  </div>
+                </li>
+
+                <li>
+                  <div class="title">
+                    <i class="material-icons">notes</i> Descripción
+                  </div>
+                  <div class="content">
+                    {{profile.description}}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="card">
+            <div class="body">
+              <div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Trabajos Activos</a></li>
+                  <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Trabajos Cerrados</a></li>
+                  <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Nuevo Trabajo</a></li>
+                  <li role="presentation"><a href="#change_perfil_settings" aria-controls="settings" role="tab" data-toggle="tab">Perfil</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="home">
+
+
+                    {% for trabajo_activo in trabajo_activo %}
+
+
+
+
+
+
+                    <div class="panel panel-default panel-post">
+                      <div class="panel-heading">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="#">
+                                                            <img src="assets/images/user-lg.jpg" />
+                                                        </a>
+                          </div>
+                          <div class="media-body">
+
+                            Fecha Publicación -
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="post">
+                          <div class="post-heading">
+                                          <p>
+                              Tipo Pintura: {{trabajo_activo.tipo}}
+                            </p>
+                            <p>
+                              Ambientes: {{trabajo_activo.ambientes}}
+                            </p>
+
+                            <p>
+                              Superficie: {{trabajo_activo.superficie}}
+                            </p>
+                            <p>
+                              Nota: {{trabajo_activo.nota}}
+                            </p>
+
+
+                          </div>
+                          <div class="post-content">
+                            <div class="row">
+
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+
+
+
+
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
+                    {% for trabajo_cerrado in trabajo_cerrado %}
+
+
+
+
+
+
+                    <div class="panel panel-default panel-post">
+                      <div class="panel-heading">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="#">
+                                                            <img src="assets/images/user-lg.jpg" />
+                                                        </a>
+                          </div>
+                          <div class="media-body">
+
+                            Fecha Publicación -
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="post">
+                          <div class="post-heading">
+                            <p>
+                              Tipo Pintura: {{trabajo_cerrado.tipo}}
+                            </p>
+                            <p>
+                              Ambientes: {{trabajo_cerrado.ambientes}}
+                            </p>
+
+                            <p>
+                              Superficie: {{trabajo_cerrado.superficie}}
+                            </p>
+                            <p>
+                              Nota: {{trabajo_cerrado.nota}}
+                            </p>
+
+
+                          </div>
+                          <div class="post-content">
+                            <div class="row">
+
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+                              <div class="col-md-3">
+                                <img src="assets/images/300.png" class="img-responsive" />
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    {% endfor %}
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
+
+                    {{ form_start(form) }}
+
+
+
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label for="OldPassword" class="col-sm-3 control-label">Tipo de Trabajo</label>
+                        <div class="col-sm-9">
+                          <div class="form-line">
+
+                            {{ form_widget(form.tipo, {'attr': {'class': 'form-control'}}) }}
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NewPassword" class="col-sm-3 control-label">Ambientes</label>
+                        <div class="col-sm-9">
+                          <div class="form-line">
+                            {{ form_widget(form.ambientes, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NewPasswordConfirm" class="col-sm-3 control-label">Superficie</label>
+                        <div class="col-sm-9">
+                          <div class="form-line">
+                            {{ form_widget(form.superficie, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="NewPasswordConfirm" class="col-sm-3 control-label">Nota</label>
+                        <div class="col-sm-9">
+                          <div class="form-line">
+                            {{ form_widget(form.nota, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+
+                        </div>
+
+                        <input type="submit" class="btn btn-danger" value="Create" /> {{ form_end(form) }}
+                      </div>
+                    </form>
+                  </div>
+                  
+                  <div role="tabpanel" class="tab-pane fade in" id="change_perfil_settings">
+                        asdasds
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

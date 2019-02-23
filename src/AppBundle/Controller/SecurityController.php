@@ -6,19 +6,32 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\User;
+use AppBundle\Entity\Tipos;
+use AppBundle\Entity\Pintureria;
 
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/", name="login")
      */
     public function loginAction(AuthenticationUtils $authenticationUtils)
     {
+      
+       //Gestor Repos
+      $em = $this->getDoctrine()->getManager();
+      
+       $pintureria = $this->getDoctrine()->getRepository('AppBundle:Pintureria')->findAll();
+       $tipos = $this->getDoctrine()->getRepository('AppBundle:Tipos')->findAll();
+      
+      
        return $this->render(
            'auth/login.html.twig',
            array(
                'last_username' => $authenticationUtils->getLastUsername(),
                'error'         => $authenticationUtils->getLastAuthenticationError(),
+               'pintureria' => $pintureria,
+               'tipos' => $tipos,
            )
        );
     }
@@ -39,27 +52,5 @@ class SecurityController extends Controller
 
     }
 
-
-        /**
-     * @Route("/profile", name="profile")
-     */
-    public function profileAction(Request $request)
-    {
-       /* $em = $this->getDoctrine()->getManager();
-
-        //Tipos de Trabajos
-          $tipos_repo = $em->getRepository('AppBundle:Tipos');
-          $tipos = $tipos_repo->findAll();
-       
-        // Pinturerias 
-          $pintureria_repo = $em->getRepository('AppBundle:Pintureria');
-          $pintureria = $pintureria_repo->findAll();
-*/
-          
-        return $this->render(
-            'auth/profile.html.twig',
-            array(
-            )
-        );
-    }
+ 
 }
