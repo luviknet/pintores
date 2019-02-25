@@ -32,6 +32,13 @@ class UserType extends AbstractType
                       'Exterior e Interior' => 'exteriorinterior',
                   ],
               ])
+            ->add('profile', ChoiceType::class, [
+                'choices'  => [
+                    'Hogar' => 'hogar',
+                    'Profesional' => 'profesional',
+                     
+                ],
+            ])  
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,

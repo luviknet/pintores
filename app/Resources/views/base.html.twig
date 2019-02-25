@@ -8,47 +8,48 @@
        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
        <!-- Bootstrap Core Css -->
-        <link href="assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+     
+        <link href="{{asset('assets/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
           <!-- Waves Effect Css -->
-         <link href="assets/plugins/node-waves/waves.css" rel="stylesheet" />
+         <link href="{{asset('assets/plugins/node-waves/waves.css') }}"rel="stylesheet" />
 
          <!-- Animation Css -->
-         <link href="assets/plugins/animate-css/animate.css" rel="stylesheet" />
+         <link href="{{asset('assets/plugins/animate-css/animate.css') }}" rel="stylesheet" />
 
        <!-- Custom Css -->
-       <link href="assets/css/style.css" rel="stylesheet">
+       <link href="{{asset('assets/css/style.css') }}" rel="stylesheet">
        
-       <link href="assets/plugins/waitme/waitMe.css" rel="stylesheet" />
+       <link href="{{asset('assets/plugins/waitme/waitMe.css') }}" rel="stylesheet" />
 
           <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-          <link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+          <link href="{{asset('assets/css/themes/all-themes.css') }}" rel="stylesheet" />
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
               <!-- Jquery Core Js -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.js') }}"></script>
 
     <!-- Select Plugin Js -->
-    <script src="assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="{{asset('assets/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="{{asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="assets/plugins/node-waves/waves.js"></script>
+    <script src="{{asset('assets/plugins/node-waves/waves.js') }}"></script>
 
     <!-- Custom Js -->
-    <script src="assets/js/pages/examples/profile.js"></script>
+    <script src="{{asset('assets/js/pages/examples/profile.js') }}"></script>
 
     <!-- Demo Js -->
-    <script src="assets/js/demo.js"></script>
+    <script src="{{asset('assets/js/demo.js') }}"></script>
        {% endblock %}
     </body>
 </html>

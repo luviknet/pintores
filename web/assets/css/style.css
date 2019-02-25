@@ -2402,12 +2402,18 @@ a {
   animation: none !important; }
 
 section.content {
-  margin: 100px 15px 0 0px;
+  margin: -40px 15px 0 15px;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-
+ 
+  section.content2 {
+    margin: 100px 15px 0 15px;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
 /* Dashboard =================================== */
 .dashboard-flot-chart {
   height: 275px; }

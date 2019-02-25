@@ -92,6 +92,24 @@ easy_admin:
                     - description                
                     - { property: 'imageFile', type: 'file' }
                    
+        Slides:
+            class: AppBundle\Entity\Slide
+            list:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+                    - { property: 'image2', type: 'image', base_path: '%app.path.product_images%' }
+                    - { property: 'image3', type: 'image', base_path: '%app.path.product_images%' }
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+                    - { property: 'image2', type: 'image', base_path: '%app.path.product_images%' }
+                    - { property: 'image3', type: 'image', base_path: '%app.path.product_images%' }
+            form:
+                fields:
+                    - { property: 'imageFile', type: 'file' } 
+                    - { property: 'imageFile2', type: 'file' } 
+                    - { property: 'imageFile3', type: 'file' } 
+                   
         Tipos:
             class: AppBundle\Entity\Tipos
             list:
@@ -108,8 +126,7 @@ easy_admin:
                 fields:
                     - title
                     - description                
-                    - { property: 'imageFile', type: 'file' }
-                   
+                    - { property: 'imageFile', type: 'file' }            
 vich_uploader:
     db_driver: orm     
     

@@ -56,6 +56,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=64)
      */
     protected $password;
+   
+    /** 
+    * @ORM\Column(type="string", length=255)
+    */
+   protected $profile;
 
     public function eraseCredentials()
     {
@@ -160,5 +165,15 @@ class User implements UserInterface
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    public function getProfile()
+    {
+        return $this->profile;
+    }
+
+    public function setProfile($profile)
+    {
+        $this->profile = $profile;
     }
 }
