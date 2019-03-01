@@ -11,15 +11,16 @@ use AppBundle\Entity\Tipos;
 use AppBundle\Entity\Pintureria;
 use AppBundle\Entity\Slide;
 use AppBundle\Entity\Texto;
-use AppBundle\Entity\Trabajo;
-use AppBundle\Form\TrabajoType;
+
+use AppBundle\Entity\Trabajoe;
+use AppBundle\Form\TrabajoeType;
 
 class SecurityController extends Controller
 {
     /**
      * @Route("/", name="login")
      */
-    public function loginAction(AuthenticationUtils $authenticationUtils, Request $request)
+    public function loginAction(Request $request, AuthenticationUtils $authenticationUtils )
     {
       
        //Gestor Repos
@@ -30,14 +31,18 @@ class SecurityController extends Controller
        $slide = $this->getDoctrine()->getRepository('AppBundle:Slide')->findAll();
        $text = $this->getDoctrine()->getRepository('AppBundle:Texto')->findAll();
    
-       $trabajo = new Trabajo();
-       $form = $this->createForm('AppBundle\Form\TrabajoType', $trabajo);
+       $trabajoe = new Trabajoe();
+       $form = $this->createForm('AppBundle\Form\TrabajoeType', $trabajoe);
        $form->handleRequest($request);
-       
-       if ($form->isSubmitted() && $form->isValid()) {
-           $em = $this->getDoctrine()->getManager();
-           $trabajo->setIdusuario($user);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            var_dump('1'); die;
+          
            $trabajo->setEstado('0'); 
+
+           var_dump($trabajoe);die;
+           $em->persist($trabajoe);
+           $em->flush(); 
            return $this->redirectToRoute('register');
       }
 
@@ -55,6 +60,7 @@ class SecurityController extends Controller
        );
     }
 
+   
     /**
      * @Route("/login_check", name="security_login_check")
      */
