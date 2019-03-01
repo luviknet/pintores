@@ -1,7 +1,7 @@
 /* Navbar ====================================== */
 @import url(materialize.css);
 .navbar {
-  font-family: "Roboto", sans-serif;
+  font-family:'Montserrat', sans-serif;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -8225,4 +8225,25 @@ html.ie11 .bs-searchbox .form-control {
   padding: 10px;
 }
 
+h2{
+  
+}
 
+h2 .titulo{
+  font-family:'Montserrat', sans-serif;
+  font-size: 35px;
+  display: inline-block;
+  padding-bottom: 13px;
+  position: relative;
+}
+
+h2 .titulo .linea{
+  display: block;
+  height: 2px;
+  background-color: #F44336;
+  width: 100px;
+  position: absolute;
+  bottom: 0px;
+  left:  50%;
+  margin-left: -50px;
+}
