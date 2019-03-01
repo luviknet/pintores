@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Tipos;
 use AppBundle\Entity\Pintureria;
+use AppBundle\Entity\Slide;
+use AppBundle\Entity\Texto;
 
 class SecurityController extends Controller
 {
@@ -23,6 +25,8 @@ class SecurityController extends Controller
       
        $pintureria = $this->getDoctrine()->getRepository('AppBundle:Pintureria')->findAll();
        $tipos = $this->getDoctrine()->getRepository('AppBundle:Tipos')->findAll();
+       $slide = $this->getDoctrine()->getRepository('AppBundle:Slide')->findAll();
+       $text = $this->getDoctrine()->getRepository('AppBundle:Texto')->findAll();
       
       
        return $this->render(
@@ -32,6 +36,8 @@ class SecurityController extends Controller
                'error'         => $authenticationUtils->getLastAuthenticationError(),
                'pintureria' => $pintureria,
                'tipos' => $tipos,
+               'slide' => $slide,
+               'texto' => $text,
            )
        );
     }

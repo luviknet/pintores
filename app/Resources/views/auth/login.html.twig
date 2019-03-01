@@ -4,6 +4,17 @@
 
   <!-- Overlay For Sidebars -->
   <div class="overlay"></div>
+  <!-- Overlay For Sidebars -->
+    
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
 
   <nav class="navbar">
     <div class="container-fluid">
@@ -35,24 +46,26 @@
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-          <div class="item active">
-              <img src="/luvik/pintores/web/assets/images/image-gallery/11.jpg" />
-          </div>
-          <div class="item">
-              <img src="/luvik/pintores/web/assets/images/image-gallery/12.jpg" />
-          </div>
-          <div class="item">
-              <img src="/luvik/pintores/web/assets/images/image-gallery/19.jpg" />
-          </div>
+        <div class="item active">
+          <img src="uploads/images/products/{{slide[0].image}}" />
+        </div>
+        <div class="item">
+          <img src="uploads/images/products/{{slide[0].image2}}" />
+        </div>
+        <div class="item">
+          <img src="uploads/images/products/{{slide[0].image3}}" />
+        </div>
       </div>
 
+      
+      
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -62,28 +75,59 @@
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
       </a>
-  </div>
-     
-  
-    </section>
+    </div>
+
+
+  </section>
   <section class="content card">
     <div class="container-fluid">
       <div class="block-header">
-        <h2>INDEX</h2>
+
       </div>
     </div>
 
     <!-- Button trigger modal -->
 
-      {% for pintureria in pintureria %}
 
-        {{pintureria.title}}
-        {{pintureria.description}}
-         
-         
-        <img src="/luvik/pintores/web/uploads/images/products/{{pintureria.image}}" />
-      
+    <div class="seccionesindex">
+      <h2>
+        BIENVENIDO
+      </h2>
+   {{texto[0].text}}
+    </div>
+
+    <div class="seccionesindex">
+      <h2>
+        PINTURERIAS
+      </h2>
+      <div class="row" class="row" style="
+    text-align: center;
+">
+        {% for pintureria in pintureria %}
+        <div class="col-md-3 col-xs-12">
+          <p>{{pintureria.title}}</p>
+          <p>{{pintureria.description}}</p>
+          <img src="uploads/images/products/{{pintureria.image}}" />
+        </div>
         {% endfor %}
+      </div>
+    </div>
+
+    <div class="seccionesindex">
+      <h2>
+        TIPO DE TRABAJOS
+      </h2>
+      <div class="row" class="row" style="
+    text-align: center;
+">
+        {% for tipos in tipos %}
+        <div class="col-md-3 col-xs-12">
+          {{tipos.title}} {{tipos.description}}
+          <img src="uploads/images/products/{{tipos.image}}" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
 
 
     <!-- Modal -->
@@ -94,11 +138,11 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Login</h4>
           </div>
-     
-     
-     
+
+
+
           <div class="modal-body">
-         <div class="body">
+            <div class="body">
               <form method="POST" action="{{ path('security_login_check') }}">
                 {% if error %}
                 <div class="alert alert-danger">
@@ -125,7 +169,7 @@
                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">INGRESAR</button>
               </form>
             </div>
-          </div> 
+          </div>
 
         </div>
 

@@ -73,10 +73,32 @@ sensio_framework_extra:
 
 easy_admin:
     site_name: 'Pintores'
+    design:
+        menu:
+            - label: 'Dashboard'
+            - { label: 'Dashboard', route: 'admin_dashboard', default: true, icon: 'tachometer-alt'}
+            - label: 'Configuración Home'
+            - { label: 'Slides', icon: 'images', entity: 'Slides'}
+            - { label: 'Texto', icon: 'font', entity: 'Texto' }
+            - { label: 'Pinturerias', icon: 'paint-roller', entity: 'Pintureria' }
+            - { label: 'Tipos', icon: 'building', entity: 'Tipos' }
+            - label: 'Trabajos'
+            - { label: 'Trabajos', icon: 'building', entity: 'Trabajo' }
+            - label: 'Presupuestos'
+            - label: 'Configuración de Contacto'
+            - label: 'Sitio Web'
+            - { label: 'Sitio', route: 'login', icon: 'sitemap' }
+            
+        assets:
+            css:
+                - 'assets/admin/css/sb-admin.css'
+                - 'assets/admin/vendor/fontawesome-free/css/all.min.css'
+                - 'assets/admin/vendor/datatables/dataTables.bootstrap4.css'
     entities:
         Pintureria:
             class: AppBundle\Entity\Pintureria
             list:
+                actions: ['-search']
                 fields:
                     - title
                     - description
@@ -91,10 +113,24 @@ easy_admin:
                     - title
                     - description                
                     - { property: 'imageFile', type: 'file' }
-                   
+                    
+        Texto:
+            class: AppBundle\Entity\Texto
+            list:
+                actions: ['-search']           
+                fields:
+                    - text
+                    
+            show:
+                fields:
+                    - text                    
+            form:
+                fields:
+                    - text                    
         Slides:
             class: AppBundle\Entity\Slide
             list:
+                actions: ['-search']            
                 fields:
                     - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
                     - { property: 'image2', type: 'image', base_path: '%app.path.product_images%' }
@@ -113,6 +149,7 @@ easy_admin:
         Tipos:
             class: AppBundle\Entity\Tipos
             list:
+                actions: ['-search']
                 fields:
                     - title
                     - description
@@ -127,6 +164,20 @@ easy_admin:
                     - title
                     - description                
                     - { property: 'imageFile', type: 'file' }            
+                    
+        Trabajo:
+            class: AppBundle\Entity\Trabajo
+            list:
+                actions: ['-search']
+                fields:
+                    - Tipo
+                    - ambientes
+                    - superficie
+            show:
+                fields:
+                    - Tipo
+                    - ambientes
+                    - superficie
 vich_uploader:
     db_driver: orm     
     

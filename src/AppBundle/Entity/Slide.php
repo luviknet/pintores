@@ -46,7 +46,7 @@ class Slide
     private $image2;
 
     /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image22")
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image2")
      * @var File
      */
     private $imageFile2;

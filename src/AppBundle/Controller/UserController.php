@@ -51,7 +51,7 @@ class UserController extends Controller
             array(
               'profile' => $user_profile,
               'trabajo_activo' => $trabajo_activo,
-                'trabajo_cerrado' => $trabajo_cerrado,
+              'trabajo_cerrado' => $trabajo_cerrado,
               'form' => $form->createView(),
               
             )
