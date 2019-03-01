@@ -85,7 +85,8 @@ easy_admin:
             - label: 'Trabajos'
             - { label: 'Trabajos', icon: 'building', entity: 'Trabajo' }
             - label: 'Presupuestos'
-            - label: 'Configuración de Contacto'
+            - label: 'Configuración de Contacto' 
+            - { label: 'Contacto', icon: 'mobile', entity: 'Contacto' }
             - label: 'Sitio Web'
             - { label: 'Sitio', route: 'login', icon: 'sitemap' }
             
@@ -126,7 +127,7 @@ easy_admin:
                     - text                    
             form:
                 fields:
-                    - text                    
+                    - { property: 'text', type: 'fos_ckeditor' }                    
         Slides:
             class: AppBundle\Entity\Slide
             list:
@@ -178,6 +179,26 @@ easy_admin:
                     - Tipo
                     - ambientes
                     - superficie
+
+        Contacto:
+            class: AppBundle\Entity\Contacto
+            list:
+                actions: ['-search']
+                fields:
+                    - Telefono
+                    - Email
+                    - Facebook
+                    - Twitter
+                    - Instagram
+                    
+
+            show:
+                fields:
+                    - Telefono
+                    - Email
+                    - Facebook
+                    - Twitter
+                    - Instagram                   
 vich_uploader:
     db_driver: orm     
     

@@ -1,4 +1,4 @@
-Symfony 3.4 +  EasyAdminBundle + vichuploaderbundle
+Symfony 3.4 +  EasyAdminBundle + vichuploaderbundle + FOSCKEditorBundle
 Para iniciar el server ejecutar en consola: php bin/console server:run
 
 ingresar al admin con /admin
@@ -12,3 +12,6 @@ Symfony: https://symfony.com/doc/3.4/setup.html
 EasyAdminBundle: instalación: https://symfony.com/doc/master/bundles/EasyAdminBundle/index.html
 
 vichuploaderbundle: Instalación: https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html
+
+FOSCKEditorBundle: 
+https://symfony.com/doc/1.x/bundles/EasyAdminBundle/integration/ivoryckeditorbundle.html
