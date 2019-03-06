@@ -7771,9 +7771,9 @@ fieldset[disabled] .form-control {
 
 /* Login Page ================================== */
 .login-page {
-  background-color: #00BCD4;
+   
   padding-left: 0;
-  max-width: 360px;
+ 
   margin: 5% auto;
   overflow-x: hidden; }
   .login-page .login-box .msg {
@@ -8246,4 +8246,28 @@ h2 .titulo .linea{
   bottom: 0px;
   left:  50%;
   margin-left: -50px;
+}
+
+.page-footer{
+  margin-top:10px;
+  background-color: black;
+  color: white;
+}
+
+.tw-ic{
+  color: white;
+  font-size: 15px;
+  padding:10px;
+}
+
+.titulo-login{
+
+  margin-bottom: 30px;
+
+}
+
+
+.texto-login{
+      padding: 10px;
+    font-size: 15px;
 }

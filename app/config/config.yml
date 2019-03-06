@@ -74,21 +74,26 @@ sensio_framework_extra:
 easy_admin:
     site_name: 'Pintores'
     design:
+        brand_color: '#F44336'
         menu:
             - label: 'Dashboard'
-            - { label: 'Dashboard', route: 'admin_dashboard', default: true, icon: 'tachometer-alt'}
+            - { label: 'Panel Administración', route: 'admin_dashboard', default: true, icon: 'tachometer-alt'}
             - label: 'Configuración Home'
             - { label: 'Slides', icon: 'images', entity: 'Slides'}
             - { label: 'Texto', icon: 'font', entity: 'Texto' }
             - { label: 'Pinturerias', icon: 'paint-roller', entity: 'Pintureria' }
-            - { label: 'Tipos', icon: 'building', entity: 'Tipos' }
+            - { label: 'Categorias', icon: 'building', entity: 'Tipos' }
+            - { label: 'Por qué contratarnos?', icon: 'building', entity: 'Contratar' }
+            
+            - label: 'Configuración de Footer' 
+            - { label: 'Footer', icon: 'mobile', entity: 'Contacto' }
             - label: 'Trabajos'
             - { label: 'Trabajos', icon: 'building', entity: 'Trabajo' }
             - label: 'Presupuestos'
-            - label: 'Configuración de Contacto' 
-            - { label: 'Contacto', icon: 'mobile', entity: 'Contacto' }
             - label: 'Sitio Web'
             - { label: 'Sitio', route: 'login', icon: 'sitemap' }
+            
+            
             
         assets:
             css:
@@ -198,7 +203,19 @@ easy_admin:
                     - Email
                     - Facebook
                     - Twitter
-                    - Instagram                   
+                    - Instagram       
+
+        Contratar:
+            class: AppBundle\Entity\Contratar
+            list:
+                actions: ['-search']
+                fields:
+                    - Icono
+                    - Texto                   
+            show:
+                fields:
+                    - Icono
+                    - Texto                   
 vich_uploader:
     db_driver: orm     
     

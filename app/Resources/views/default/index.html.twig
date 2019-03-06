@@ -1,36 +1,393 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block body %}
+
+<body class="theme-red">
+
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+  <!-- Overlay For Sidebars -->
+
+  <div class="search-bar">
+    <div class="search-icon">
+      <i class="material-icons">search</i>
+    </div>
+    <input type="text" placeholder="START TYPING...">
+    <div class="close-search">
+      <i class="material-icons">close</i>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+        <a href="javascript:void(0);" class="bars"></a>
+        <a class="navbar-brand" href="../../index.html">Pintores</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Call Search -->
+
+          <li><a href="{{ path('login') }}"><i class="material-icons">perm_identity</i></a></li>
+          <li><a href="{{ path('register') }}"><i class="material-icons">how_to_reg</i></a></li>
+
+
+          <!-- #END# Notifications -->
+          <!-- Tasks -->
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <section>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="uploads/images/products/{{slide[0].image}}" />
+        </div>
+        <div class="item">
+          <img src="uploads/images/products/{{slide[0].image2}}" />
+        </div>
+        <div class="item">
+          <img src="uploads/images/products/{{slide[0].image3}}" />
+        </div>
+      </div>
 
 
 
-{% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-success">
-                <div class="panel-heading">List of Game of Thrones Characters</div>
-
-                {% if app.user != null %}
-                  <table class="table">
-                      <tr>
-                          <th>Character</th>
-                          <th>Real Name</th>
-                      </tr>
-
-                      {% for key, item in character %}
-                        <tr>
-                          <td>{{ key }}</td><td>{{ item }}</td>
-                        </tr>
-                      {% endfor %}
-                  </table>
-                {% endif %}
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+    </div>
 
 
+  </section>
+  <section class="content card">
+    <div class="container-fluid">
+      <div class="block-header">
+
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <div class="seccionesindex">
+      <h2 style="text-align: center;">
+        <span class="titulo">BIENVENIDO
+          <span class="linea"></span>
+
+        </span>
+
+      </h2>
+
+      <div style="text-align: center; font-size: 20px;"> {{texto[0].text}}
+      </div>
+      <hr></hr>
+      <div class="seccionesindex">
+        <h2 style="text-align: center;">
+          <span class="titulo">PINTURERIAS
+          <span class="linea"></span>
+
+          </span>
+
+        </h2>
+        <div class="row" style="
+    text-align: center;
+">
+          {% for pintureria in pintureria %}
+
+          <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+              <img src="uploads/images/products/{{pintureria.image}}" />
+              <div class="caption">
+                <h3>{{pintureria.title}}</h3>
+                <p>
+                  {{pintureria.description}}
+                </p>
+                <p>
+                  <a href="javascript:void(0);" class="btn btn-primary waves-effect" role="button">Ver mas</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <hr></hr>
+      <div class="seccionesindex">
+        <h2 style="text-align: center;">
+          <span class="titulo">TIPOS DE TRABAJOS
+          <span class="linea"></span>
+
+          </span>
+
+        </h2>
+        <div class="row" class="row" style="
+    text-align: center;
+">
+          {% for tipos in tipos %}
+          <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+              <img src="uploads/images/products/{{tipos.image}}" />
+              <div class="caption">
+                <h3>{{tipos.title}}</h3>
+                <p>
+                  {{tipos.description}}
+                </p>
+                <p>
+                  <a href="javascript:void(0);" class="btn btn-primary waves-effect" role="button">Ver mas</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+
+      <div class="seccionesindex">
+        <h2 style="text-align: center;">
+          <span class="titulo">¿NECESITÁS UN PRESUPUESTO?
+      <span class="linea"></span>
+
+          </span>
+
+        </h2>
+        <div class="row" class="row" style="
+text-align: center;
+">
+
+          <button class="btn bg-red waves-effect" data-toggle="modal" data-target="#myModal2"> pedilo acá</button>
+
+        </div>
+      </div>
+
+      <hr>
+      <div class="seccionesindex">
+        
+
+          <h2 style="text-align: center;">
+            <span class="titulo">¿POR QUÉ CONTRATARNOS?
+      <span class="linea"></span>
+
+            </span>
+
+          </h2>
+          <div class="row" class="row" style="
+text-align: center;
+">
+
+           {%for contratar in contratar %}
+             <div class="col-md-4 col-sm-4">
+                          <i class="material-icons" style="font-size: 40px;">{{contratar.icono}}</i><br>
+              {{contratar.texto}}
+            </div>
+            {% endfor %}
+                       
+                     
+              
+          </div>
+
+
+
+      </div>
+  
+
+
+
+      <!-- Modal Presupuesto -->
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">PRESUPUESTO</h4>
+            </div>
+            <div class="modal-body">
+              <div class="body">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="NewPassword" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                      <div class="form-line">
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="OldPassword" class="col-sm-3 control-label">Tipo de Trabajo</label>
+                    <div class="col-sm-9">
+                      <div class="form-line">
+
+                        {{ form_widget(form.tipo, {'attr': {'class': 'form-control'}}) }}
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="NewPassword" class="col-sm-3 control-label">Ambientes</label>
+                    <div class="col-sm-9">
+                      <div class="form-line">
+                        {{ form_widget(form.ambientes, {'attr': {'class': 'form-control'}}) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="NewPasswordConfirm" class="col-sm-3 control-label">Superficie</label>
+                    <div class="col-sm-9">
+                      <div class="form-line">
+                        {{ form_widget(form.superficie, {'attr': {'class': 'form-control'}}) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="NewPasswordConfirm" class="col-sm-3 control-label">Nota</label>
+                    <div class="col-sm-9">
+                      <div class="form-line">
+                        {{ form_widget(form.nota, {'attr': {'class': 'form-control'}}) }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">INGRESAR</button>
+                  </div>
+                </form>
+              </div>
             </div>
 
-            {% if app.user == null %}
-              <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
-            {% endif %}
+          </div>
+
+
         </div>
+      </div>
+
+
+  </section>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+          
+        <div style="float:left; padding-left:10px; padding-top:10px;">PINTORES</div>
+      
+        <div style="float:right; padding-right:10px;  padding-top:10px;">
+          <a class="tw-ic">
+              <i class="fab fa-facebook-f "> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fab fa-twitter "> </i>
+            </a>
+            <!-- Google +-->
+            <a class="tw-ic">
+              <i class="fab fa-google-plus-g "> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="tw-ic">
+              <i class="fab fa-linkedin-in "> </i>
+            </a>
+            <!--Instagram-->
+            <a class="tw-ic">
+              <i class="fab fa-instagram"> </i>
+            </a>
+   
+        </div><br>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-sm-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-sm-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
     </div>
-</div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="#"> Pintores.com.ar</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+
+
+</body>
 {% endblock %}
